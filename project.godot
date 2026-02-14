@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the editor might reset some values.
+; See https://docs.godotengine.org/en/stable/classes/class_projectsettings.html
+
+config_version=5
+
+[application]
+
+config/name="BLOCKNOVA"
+run/main_scene="res://Main.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+run/max_fps=60
+boot_splash/bg_color=Color(0.05, 0.1, 0.3, 1)
+boot_splash/show_image=false
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=854
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[input]
+
+touch_drag:
+{
+"deadzone": 0.05,
+"events": []
+}
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/canvas_textures/default_texture_filter=0
+
+[android]
+
+package/unique_name="com.blocknova.game"
+package/name="BLOCKNOVA"
+min_sdk=24
+target_sdk=33
