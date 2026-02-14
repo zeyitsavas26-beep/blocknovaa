@@ -1,4 +1,4 @@
-name: "Godot Android Build"
+name: "Godot APK Build"
 on: [push, pull_request]
 
 jobs:
@@ -9,10 +9,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Godot Android Export
+      - name: Setup Godot
         uses: firebelley/godot-export@v5.2.1
         with:
           godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.2.1-stable/Godot_v4.2.1-stable_linux.x86_64.zip
           godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.2.1-stable/Godot_v4.2.1-stable_export_templates.tpz
           relative_project_path: ./
           archive_output: true
+          # Burası önemli: çıktı ismini zorluyoruz
+          artifact_name: build-output
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Proje-APK
+          path: ./*.zip
